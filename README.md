@@ -118,7 +118,56 @@ npm run test:e2e
 npm run test:cov
 ```
 
-## Docker Support
+## Deployment
+
+### Deploy on Railway
+
+1. **Install Railway CLI**:
+   ```bash
+   npm install -g @railway/cli
+   ```
+
+2. **Login to Railway**:
+   ```bash
+   railway login
+   ```
+
+3. **Initialize Project**:
+   ```bash
+   railway init
+   ```
+
+4. **Add PostgreSQL Database**:
+   - Railway Dashboard → Your Project → New → Database → PostgreSQL
+   - Or via CLI: `railway add` (select PostgreSQL)
+
+5. **Link Your Service**:
+   - Railway Dashboard → Your Project → New → GitHub Repo
+   - Select `MRKhan003/meri-dukaan-backend`
+
+6. **Set Environment Variables** (in Railway Dashboard):
+   - Go to your service → Variables tab
+   - Add:
+     ```
+     DATABASE_URL=<auto-set-from-postgres-service>
+     JWT_SECRET=<your-secret-key>
+     PORT=3001
+     STORAGE_PATH=/app/storage
+     NODE_ENV=production
+     ```
+
+7. **Deploy**:
+   - Railway automatically deploys on git push
+   - Or manually: `railway up`
+
+8. **Run Migrations** (after first deploy):
+   - Railway Dashboard → Your Service → Deployments → Latest → View Logs
+   - Or via CLI: `railway run npm run prisma:migrate:deploy`
+   - Then: `railway run npm run prisma:seed`
+
+9. **Your API URL**: Check Railway dashboard for your service URL
+
+### Docker Support
 
 ```bash
 # Start with Docker Compose
