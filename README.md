@@ -63,48 +63,6 @@ npm run start:dev
 
 Server will run on `http://localhost:3001`
 
-## API Documentation
-
-### Authentication
-- `POST /auth/login` - Login and get JWT token
-
-### POS Endpoints
-- `POST /pos/scan` - Scan product QR code
-- `POST /pos/invoices` - Create invoice
-- `GET /pos/invoices/:id` - Get invoice details
-- `GET /pos/invoices/:id/pdf` - Download invoice PDF
-
-### Admin Analytics
-- `GET /admin/filters` - Get filter options
-- `GET /admin/analytics/summary` - Dashboard summary
-- `GET /admin/analytics/sales-trend` - Sales trend data
-- `GET /admin/analytics/brand-distribution` - Brand distribution
-- `GET /admin/analytics/market-share` - Market share data
-- `GET /admin/analytics/brands` - Brand list
-- `GET /admin/analytics/top-skus` - Top SKUs
-
-## Default Users
-
-All users have password: `password123`
-
-- **Admin**: `admin@meridukaan.com` (ADMIN role)
-- **Sales 1**: `sales1@meridukaan.com` (SALES role - Karachi)
-- **Sales 2**: `sales2@meridukaan.com` (SALES role - Lahore)
-- **Inventory**: `inventory@meridukaan.com` (INVENTORY role)
-- **Purchase**: `purchase@meridukaan.com` (PURCHASE role)
-
-## Project Structure
-
-```
-src/
-├── auth/           # Authentication module
-├── pos/            # POS operations
-├── admin/          # Admin analytics
-├── websocket/      # WebSocket gateway
-├── prisma/         # Prisma service
-└── common/         # Shared utilities
-```
-
 ## Testing
 
 ```bash
@@ -148,10 +106,6 @@ Events:
 ## License
 
 MIT
-
-## Contributors
-
-Your name here
 
 ## Support
 
