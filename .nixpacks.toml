@@ -3,7 +3,10 @@ nixPkgs = ["nodejs-20_x"]
 
 [phases.install]
 cmds = [
-  "npm install --legacy-peer-deps --prefer-offline --no-audit",
+  "npm config set fetch-retries 3",
+  "npm config set fetch-retry-mintimeout 20000",
+  "npm config set fetch-retry-maxtimeout 120000",
+  "npm install --legacy-peer-deps --no-audit --no-optional --maxsockets 1",
   "npm run prisma:generate"
 ]
 
