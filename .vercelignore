@@ -1,8 +1,0 @@
-# Vercel ignore file - exclude unnecessary files from deployment
-node_modules/.cache
-coverage
-*.log
-.env.local
-.env.*.local
-.DS_Store
-*.tsbuildinfo
